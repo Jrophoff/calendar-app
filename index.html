@@ -18,21 +18,66 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <h1 class="display-3 d-flex justify-content-center">Work Day Scheduler</h1>
+      <p class="lead d-flex justify-content-center">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <p id="time-stamp" class="time-stamp d-flex justify-content-center"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <div class="row time-block">
+          <div class="hour col-1">9am</div>
+          <input class="description col-10">
+          <div class="saveBtn col-1"></div>
+      </div>
+      <div class="row time-block">
+          <div class="hour col-1">10am</div>
+          <input class="description col-10">
+          <div class="saveBtn col-1"></div>
+      </div>
+      <div class="row time-block">
+          <div class="hour col-1">11am</div>
+          <input class="description col-10">
+          <div class="saveBtn col-1"></div>
+      </div>
+      <div class="row time-block">
+          <div class="hour col-1">12pm</div>
+          <input class="description col-10">
+          <div class="saveBtn col-1"></div>
+      </div>
+      <div class="row time-block">
+        <div class="hour col-1">1pm</div>
+        <input class="description col-10">
+        <div class="saveBtn col-1"></div>
     </div>
-
+    <div class="row time-block">
+        <div class="hour col-1">2pm</div>
+        <input class="description col-10">
+        <div class="saveBtn col-1"></div>
+    </div>
+    <div class="row time-block">
+        <div class="hour col-1">3pm</div>
+        <input class="description col-10">
+        <div class="saveBtn col-1"></div>
+    </div>
+    <div class="row time-block">
+        <div class="hour col-1">4pm</div>
+        <input class="description col-10">
+        <div class="saveBtn col-1"></div>
+    </div>
+    <div class="row time-block">
+      <div class="hour col-1">5pm</div>
+      <input class="description col-10">
+      <div class="saveBtn col-1"></div>
+  </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
