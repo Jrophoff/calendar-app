@@ -1,12 +1,70 @@
-// (function($) {
-//     $(document),ready(function(){
 
+const taskKey = document.getElementById("taskKey");
+const btnSave = document.getElementById("btnSave");
+
+let currentTime = moment();
+
+let timeStamp = currentTime.format("LL");
+
+$(".time-stamp").html(timeStamp);
+
+// pull from local storage
+$("div[my-hour|='0']").siblings(".taskKey").val(localStorage.getItem(0));
+$("div[my-hour|='1']").siblings(".taskKey").val(localStorage.getItem(1));
+$("div[my-hour|='2']").siblings(".taskKey").val(localStorage.getItem(2));
+$("div[my-hour|='3']").siblings(".taskKey").val(localStorage.getItem(3));
+$("div[my-hour|='4']").siblings(".taskKey").val(localStorage.getItem(4));
+$("div[my-hour|='5']").siblings(".taskKey").val(localStorage.getItem(5));
+$("div[my-hour|='6']").siblings(".taskKey").val(localStorage.getItem(6));
+$("div[my-hour|='7']").siblings(".taskKey").val(localStorage.getItem(7));
+$("div[my-hour|='8']").siblings(".taskKey").val(localStorage.getItem(8));
+
+// convert moment
+
+let auditTime = function() {
+let children = $(".container").children();
+// console.log(children)
+children.each(function() {
+let input = $(this).children(".taskKey");    
+let saveBtn = $(this).children(".saveBtn");
+let hour = Number(saveBtn.attr("my-hour")) + 9;
+
+input.addClass("past")
+    // console.log(hour);
+    // console.log(currentTime.hour());
+
+    if (currentTime.hour() < hour ) {
+        $(input).addClass("future")
+    } else if (currentTime.hour() === hour) {
+        $(input).addClass("present")
+    };
+})
+}
+
+auditTime();
+
+// save to local storage
+$(".time-block").on("keydown", ".taskKey", function (e) {
+    console.log(e.originalEvent.code)
+    if ("Enter" === e.originalEvent.code) {
+        let key = $(this).siblings(".saveBtn").attr("my-hour");
+        let value = $(this).val();
+        // console.log(key);
+        // console.log(value);
+
+        localStorage.setItem(key, value);
+    }
+});
+
+$(".time-block").on("click", ".saveBtn", function () {
+console.log(e);
+    let key = $(this).attr("my-hour");
+    let value = $(this).siblings(".taskKey").val();
     
-let timeStamp = moment().format("LLLL");
-console.log(timeStamp);
+    localStorage.setItem(key, value);
 
-jQuery(".time-stamp").html(timeStamp);
+    // console.log(".saveBtn");
+    // console.log($(this).attr("my-hour"));
+    // console.log(value);
+});
 
-
-// });
-// })(jQuery);
